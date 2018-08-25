@@ -1,0 +1,143 @@
+footer {
+  background-size: 800px;
+  background-color: $blue;
+  color: $white;
+  .chyea {
+    padding: 2em 0em 3em 0em;
+    text-align: center;
+    position: relative;
+  }
+  a {
+    transition: color 300ms ease;
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+
+
+.footer-li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  li {
+    margin-bottom: 1em;
+    font-weight: bolder;
+    font-family: 'bajaHeader', sans-serif;
+    &:last-of-type {
+      margin-bottom: 0em;
+    }
+  }
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+.social-nav {
+  font-size: 1.2em;
+  list-style-type: none;
+  margin: 0;
+  padding: 1em 0em 2em 0em;
+  display: flex;
+  justify-content: center;
+  li {
+    margin: 0em 1em;
+  }
+  a {
+    color: $white;
+  }
+}
+
+.copy-rights {
+  font-size: 15px;
+  padding-bottom: 1em;
+}
+
+.footer-logo {
+  max-width: 125px;
+  width: 100%;
+  margin: auto auto 2em auto;
+}
+
+.footer-icon {
+  // padding-bottom:(1/1)* 100%;
+  position: relative;
+  margin: 0em auto;
+
+  // background: white;
+  // border-radius: 100%;
+
+}
+.ft-logo-parent {
+  padding-bottom: 1em;
+}
+.ft-logo {
+  max-width: 190px;
+  margin: auto;
+  img {
+    width: 100%;
+  }
+}
+.payment-options {
+  z-index: 999;
+  width: 100%;
+  text-align: center;
+  @include clearfix();
+  ul {
+    
+    max-width: 200px;
+    // float: right;
+    margin: auto;
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    padding-bottom: 1em;
+    z-index: 99;
+    @include clearfix();
+  }
+  li {
+    width: 23%;
+    margin-right: (8% / 4);
+    float: left;
+    &:last-of-type {
+      margin-right: 0em;
+    }
+  }
+}
+
+@media(min-width: $bp-md) {
+  footer .chyea {
+    padding: 4em 0em 1.5em 0em;
+  }
+  .footer-li {
+    display: flex;
+    justify-content: center;
+    li {
+      margin: 0em 1.5em;
+      margin-bottom: 0em;
+    }
+  }
+  .payment-options {
+    // position: absolute;
+    // padding: 1.5em 0em;
+    // float: right;
+    // bottom: 1.5em;
+    z-index: 999;
+    width: 100%;
+    text-align: right;
+    @include clearfix();
+    ul {
+      
+      max-width: 200px;
+      float: right;
+      margin: 0;
+      width: 100%;
+      list-style-type: none;
+      padding: 0;
+      padding-bottom: 0em;
+      z-index: 99;
+      @include clearfix();
+    }
+  }
+}

@@ -1,0 +1,75 @@
+$sectionTitle: 3.529em;
+
+body {
+  font-size: 22px;
+  // @include font-smoothing();
+}
+
+.section-title {
+  h1 {
+    font-size: 1.4em;
+    // @include font-smoothing();
+  }
+}
+
+
+p, 
+li, 
+span {
+  font-size: 0.85em;
+  line-height: 1.6;
+}
+
+
+@media(min-width: $bp-md) {
+  .section-title {
+    h1 {
+      font-size: 1.5em;
+    }
+  }
+  p, 
+  li, 
+  span {
+    font-size: 0.87em;
+  }
+}
+
+
+@media(min-width: $bp-lg) {
+  .section-title {
+    h1 {
+      font-size: 1.55em;
+    }
+  }
+  p, 
+  li, 
+  span {
+    font-size: 0.91em;
+  }
+}
+
+@media(min-width: $bp-xl) {
+  .section-title {
+    h1 {
+      font-size: 1.7em;
+    }
+  }
+  p, 
+  li, 
+  span {
+    font-size: 0.95em;
+  }
+}
+
+@media(min-width: $bp-xxl) {
+  .section-title {
+    h1 {
+      font-size: 2em;
+    }
+  }
+  p, 
+  li, 
+  span {
+    font-size: 1em;
+  }
+}

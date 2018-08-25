@@ -1,0 +1,61 @@
+.inner {
+  max-width: 1440px;
+  width: 95%;
+  margin: auto;
+}
+
+header, 
+footer, 
+section {
+  position: relative;
+}
+
+.is-mobile-centered {
+  text-align: center;
+}
+.site-container {
+  z-index: 2;
+  max-width: 1800px;
+  // overflow: hidden;
+  margin: auto;
+  position: relative;
+}
+
+.site-main {
+  max-width: 1800px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 9;
+}
+.is-el-bg {
+  @include fill-parent();
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 800ms ease;
+
+  &.ready {
+    opacity: 1;
+  }
+}
+
+.is-white {
+  color: $white;
+}
+
+.over-bg {
+  position: relative;
+  z-index: 5;
+}
+.is-center {
+  text-align: center;
+  margin: auto;
+}
+
+
+@media(min-width: $bp-md) {
+  .is-mobile-centered {
+    text-align: left;
+  }
+}

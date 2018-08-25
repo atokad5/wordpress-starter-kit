@@ -1,0 +1,45 @@
+.footer-nav-el {
+  position: fixed;
+  bottom: 0; left: 0;
+  width: 100%;
+  background: white;
+  z-index: 9999999;
+  transition: transform 250ms ease;
+  transform: translateY(100%);
+}
+.inner-footer {
+  display: flex;
+  align-items: center;
+  padding: 0.3em 0em;
+}
+
+.inner-foot-el {
+  padding: 0.8em 0em;
+  &.has-the-img {
+    width: 25%;
+    background: none;
+    img {
+      width: 50%;
+    }
+  }
+  width: 100%;
+  text-align: center;
+  background: #E4732D;
+}
+.shop-ticks {
+  display: inline-block;
+  color: white;
+  font-size: 80%;
+  text-decoration: none;
+  font-family: 'bajaHeader', sans-serif;
+  i {
+    color: darken(#E4732D, 10%);
+  }
+}
+
+
+@media(min-width: $bp-md) {
+  .footer-nav-el {
+    display: none;
+  }
+}

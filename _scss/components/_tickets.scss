@@ -1,0 +1,195 @@
+.ticket-el {
+  padding: 0em 0em 2em 0em;
+}
+
+.ticket-img-parent {
+  position: relative;
+}
+.ticket-img {
+  overflow: hidden;
+  @include padding-bottom(500, 840, 'img');
+  background: green;
+  img {
+    transition: all 200ms;
+  }
+  
+}
+.ticket-el {
+  padding: 1em 0.7em; 
+  margin-bottom: 1em;
+  background-size: 800px;
+  background-color: $blue;
+  &:last-of-type {
+    margin-bottom: 2em;
+  }
+}
+.ticket-title {
+  margin: 0;
+}
+
+.ticket-sign {
+  position: absolute;
+  top: -70px;
+  padding-left: 1em;
+  font-size: 1.45em;
+}
+
+.ticket-sign-m {
+  font-size: 1.45em;
+  text-align: center;
+  h2 {
+    margin-top: 0em;
+  }
+}
+
+.ticket-option {
+  max-width: 100%;
+  background: white;
+  position: relative;
+}
+.ticket-option-inner {
+  padding: 1em;
+}
+
+.content-reveal {
+  overflow: hidden;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    height: 40%;
+    background: linear-gradient(rgba(white, 0.97), 
+    rgba(white, 0.94), 
+    rgba(white, 0.92),
+    rgba(white, 0.93),
+    rgba(white, 0.93),
+    rgba(white, 0.94),
+    rgba(white, 0.95),
+    rgba(white, 0.96),
+    rgba(white, 0.97),
+    rgba(white, 1),
+    rgba(white, 1),
+    rgba(white, 1),
+    rgba(white, 1),
+    );
+    transition: transform 200ms ease;
+    bottom: 0; left: 0;
+    width: 100%;
+  }
+  &.is-open {
+    &:after {
+      content: '';
+      transform: translateY(100%);
+    }
+  }
+}
+
+.svg-container-x {
+  position: relative;
+  transition: all 500ms ease;
+  display: inline-block;
+  margin-left: 0.55em;
+}
+
+.read-more {
+  cursor: pointer;
+  font-size: 0.85em;
+  &:hover {
+    opacity: 0.7;
+  }
+  svg {
+    width: 12px;
+  }
+  #Rectangle_1 {
+  }
+  &.is-active {
+    .svg-container-x {
+      transform: rotate(45deg);
+    }
+  
+  }
+}
+.content-reveal {
+  &.is-active {
+    &:after {
+      content: '';
+      transform: translateY(100%);
+    }
+  }
+}
+
+.buy-now-btn {
+  padding-top: 1.5em;
+  text-align: center;
+}
+
+.buy-now-btn a {
+  display: inline-block;
+  background: #f46c00;
+  padding: 1.1em 2.5em;
+  font-size: 1em;
+  color: $white;
+  text-decoration: none;
+  font-family: 'bajaHeader', sans-serif;
+  transition: background 250ms ease;
+  &:hover {
+    background: darken(#f46c00, 5%);
+  }
+}
+.dk-sign {
+  display: none;
+}
+
+@media(min-width: $bp-md) {
+  .ticket-parent {
+    display: flex;
+  }
+  .ticket-sign-m {
+    font-size: 1.65em;
+    text-align: left;
+    padding-left: 1em;
+    h2 {
+      margin-top: 0em;
+    }
+  }
+
+  .ticket-sign-m {
+    // display: none;
+  }
+  .dk-sign {
+    display: block;
+    font-size: 1.6em;
+  }
+  .ticket-el {
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    background-image: none !important;
+    background-color: white;
+    &:first-of-type {
+      margin-right: 1em;
+      margin-bottom: 0em;
+    }
+  }
+  .ticket-option {
+    max-width: 90%;
+    background: white;
+    margin-top: -100px;
+    // z-index: 9;
+    position: relative;
+  }
+  
+  .ticket-sign {
+    font-size: 1.8em;
+    top: -125px;
+    display: none;
+  }
+  .buy-now-btn {
+    padding-top: 1.5em;
+    text-align: left;
+  }
+  .ticket-el {
+    margin-bottom: 0em !important;
+  }
+  
+}

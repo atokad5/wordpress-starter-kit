@@ -1,0 +1,75 @@
+.cta {
+  color: $blue;
+  text-decoration: none;
+  border: 4px solid $blue;
+  display: block;
+  // padding: 1.6em 2em;
+  max-width: 200px;
+  padding: 0.8em 1.8em;
+  font-size: 1.2em;
+  margin: 0em auto 1em auto;
+  // font-size: 0.6em;
+  position: relative;
+  font-family: 'bajaHeader', sans-serif;
+  overflow: hidden;
+  will-change: contents;
+  transition: border 200ms, box-shadow 200ms ease;
+  &:last-of-type {
+    margin-bottom: 0em;
+  }
+
+  &:hover {
+    border: 3px solid $orange;
+    .current-text {
+      transform: translateY(-100%);
+    }
+    .next-text {
+      transform: translateY(-0%);
+    }
+    .bg-sleeve {
+      // transform: translateX(0%);
+    }
+  }
+}
+
+
+a {
+  cursor: pointer;
+}
+
+.all-text {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  z-index: 4;
+  span {
+    transition: all 100ms ease;
+  }
+}
+
+.current-text {
+  display: inline-block;
+  position: relative;
+}
+
+.next-text {
+  display: inline-block;
+  position: absolute;
+  width: 100%; 
+  top: 0%; left: 0;
+  transform: translateY(100%);
+  color: $orange;
+  
+}
+
+
+
+@media(min-width: $bp-md) {
+  .cta {
+    padding: 1.3em 3em;
+    font-size: 1em;
+    max-width: auto;
+    margin: 0em 0em 0em 0em;
+  }
+  
+}
