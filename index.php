@@ -6,5 +6,7 @@
 
 site index
 
+test
+
 
 <?php get_footer(); ?>
