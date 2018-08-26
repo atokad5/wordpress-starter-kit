@@ -10445,21 +10445,9 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _countdown = __webpack_require__(2);
-
-var _countdown2 = _interopRequireDefault(_countdown);
-
-var _utily = __webpack_require__(3);
-
-var _utily2 = _interopRequireDefault(_utily);
-
 var _scroll = __webpack_require__(4);
 
 var _scroll2 = _interopRequireDefault(_scroll);
-
-var _nav = __webpack_require__(5);
-
-var _nav2 = _interopRequireDefault(_nav);
 
 var _lazyload = __webpack_require__(6);
 
@@ -10470,212 +10458,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 window.$ = _jquery2.default;
 window.jQuery = _jquery2.default;
 
-(0, _countdown2.default)();
-
-(0, _utily2.default)();
-
 (0, _scroll2.default)();
-
-(0, _nav2.default)();
 
 (0, _lazyload2.default)();
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-exports.default = function () {
-    /*!
-    * The Final Countdown for jQuery v2.2.0 (http://hilios.github.io/jQuery.countdown/)
-    * Copyright (c) 2016 Edson Hilios
-    * 
-    * Permission is hereby granted, free of charge, to any person obtaining a copy of
-    * this software and associated documentation files (the "Software"), to deal in
-    * the Software without restriction, including without limitation the rights to
-    * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-    * the Software, and to permit persons to whom the Software is furnished to do so,
-    * subject to the following conditions:
-    * 
-    * The above copyright notice and this permission notice shall be included in all
-    * copies or substantial portions of the Software.
-    * 
-    * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-    * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-    * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-    * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-    * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-    */
-    !function (a) {
-        "use strict";
-         true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_FACTORY__ = (a),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : a(jQuery);
-    }(function (a) {
-        "use strict";
-        function b(a) {
-            if (a instanceof Date) return a;if (String(a).match(g)) return String(a).match(/^[0-9]*$/) && (a = Number(a)), String(a).match(/\-/) && (a = String(a).replace(/\-/g, "/")), new Date(a);throw new Error("Couldn't cast `" + a + "` to a date object.");
-        }function c(a) {
-            var b = a.toString().replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");return new RegExp(b);
-        }function d(a) {
-            return function (b) {
-                var d = b.match(/%(-|!)?[A-Z]{1}(:[^;]+;)?/gi);if (d) for (var f = 0, g = d.length; f < g; ++f) {
-                    var h = d[f].match(/%(-|!)?([a-zA-Z]{1})(:[^;]+;)?/),
-                        j = c(h[0]),
-                        k = h[1] || "",
-                        l = h[3] || "",
-                        m = null;h = h[2], i.hasOwnProperty(h) && (m = i[h], m = Number(a[m])), null !== m && ("!" === k && (m = e(l, m)), "" === k && m < 10 && (m = "0" + m.toString()), b = b.replace(j, m.toString()));
-                }return b = b.replace(/%%/, "%");
-            };
-        }function e(a, b) {
-            var c = "s",
-                d = "";return a && (a = a.replace(/(:|;|\s)/gi, "").split(/\,/), 1 === a.length ? c = a[0] : (d = a[0], c = a[1])), Math.abs(b) > 1 ? c : d;
-        }var f = [],
-            g = [],
-            h = { precision: 100, elapse: !1, defer: !1 };g.push(/^[0-9]*$/.source), g.push(/([0-9]{1,2}\/){2}[0-9]{4}( [0-9]{1,2}(:[0-9]{2}){2})?/.source), g.push(/[0-9]{4}([\/\-][0-9]{1,2}){2}( [0-9]{1,2}(:[0-9]{2}){2})?/.source), g = new RegExp(g.join("|"));var i = { Y: "years", m: "months", n: "daysToMonth", d: "daysToWeek", w: "weeks", W: "weeksToMonth", H: "hours", M: "minutes", S: "seconds", D: "totalDays", I: "totalHours", N: "totalMinutes", T: "totalSeconds" },
-            j = function j(b, c, d) {
-            this.el = b, this.$el = a(b), this.interval = null, this.offset = {}, this.options = a.extend({}, h), this.instanceNumber = f.length, f.push(this), this.$el.data("countdown-instance", this.instanceNumber), d && ("function" == typeof d ? (this.$el.on("update.countdown", d), this.$el.on("stoped.countdown", d), this.$el.on("finish.countdown", d)) : this.options = a.extend({}, h, d)), this.setFinalDate(c), this.options.defer === !1 && this.start();
-        };a.extend(j.prototype, { start: function start() {
-                null !== this.interval && clearInterval(this.interval);var a = this;this.update(), this.interval = setInterval(function () {
-                    a.update.call(a);
-                }, this.options.precision);
-            }, stop: function stop() {
-                clearInterval(this.interval), this.interval = null, this.dispatchEvent("stoped");
-            }, toggle: function toggle() {
-                this.interval ? this.stop() : this.start();
-            }, pause: function pause() {
-                this.stop();
-            }, resume: function resume() {
-                this.start();
-            }, remove: function remove() {
-                this.stop.call(this), f[this.instanceNumber] = null, delete this.$el.data().countdownInstance;
-            }, setFinalDate: function setFinalDate(a) {
-                this.finalDate = b(a);
-            }, update: function update() {
-                if (0 === this.$el.closest("html").length) return void this.remove();var b,
-                    c = void 0 !== a._data(this.el, "events"),
-                    d = new Date();b = this.finalDate.getTime() - d.getTime(), b = Math.ceil(b / 1e3), b = !this.options.elapse && b < 0 ? 0 : Math.abs(b), this.totalSecsLeft !== b && c && (this.totalSecsLeft = b, this.elapsed = d >= this.finalDate, this.offset = { seconds: this.totalSecsLeft % 60, minutes: Math.floor(this.totalSecsLeft / 60) % 60, hours: Math.floor(this.totalSecsLeft / 60 / 60) % 24, days: Math.floor(this.totalSecsLeft / 60 / 60 / 24) % 7, daysToWeek: Math.floor(this.totalSecsLeft / 60 / 60 / 24) % 7, daysToMonth: Math.floor(this.totalSecsLeft / 60 / 60 / 24 % 30.4368), weeks: Math.floor(this.totalSecsLeft / 60 / 60 / 24 / 7), weeksToMonth: Math.floor(this.totalSecsLeft / 60 / 60 / 24 / 7) % 4, months: Math.floor(this.totalSecsLeft / 60 / 60 / 24 / 30.4368), years: Math.abs(this.finalDate.getFullYear() - d.getFullYear()), totalDays: Math.floor(this.totalSecsLeft / 60 / 60 / 24), totalHours: Math.floor(this.totalSecsLeft / 60 / 60), totalMinutes: Math.floor(this.totalSecsLeft / 60), totalSeconds: this.totalSecsLeft }, this.options.elapse || 0 !== this.totalSecsLeft ? this.dispatchEvent("update") : (this.stop(), this.dispatchEvent("finish")));
-            }, dispatchEvent: function dispatchEvent(b) {
-                var c = a.Event(b + ".countdown");c.finalDate = this.finalDate, c.elapsed = this.elapsed, c.offset = a.extend({}, this.offset), c.strftime = d(this.offset), this.$el.trigger(c);
-            } }), a.fn.countdown = function () {
-            var b = Array.prototype.slice.call(arguments, 0);return this.each(function () {
-                var c = a(this).data("countdown-instance");if (void 0 !== c) {
-                    var d = f[c],
-                        e = b[0];j.prototype.hasOwnProperty(e) ? d[e].apply(d, b.slice(1)) : null === String(e).match(/^[$A-Z_][0-9A-Z_$]*$/i) ? (d.setFinalDate.call(d, e), d.start()) : a.error("Method %s does not exist on jQuery.countdown".replace(/\%s/gi, e));
-                } else new j(this, b[0], b[1]);
-            });
-        };
-    });
-};
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-exports.default = function () {
-  ;(function ($) {
-    var $contentParent = $('.content-reveal');
-    var $contentTrue = $('.content-true-self');
-    var $triggerContent = $('.read-more');
-    var $countDown = $('.countdown');
-    var $infoParent = $('.info-parent');
-    var $headerEl = $('header');
-    var $countEl = $('.countdown-bar');
-    // let $window = $('window');
-
-    function setHdrPadding() {
-      if (767 > $(window).width()) {
-        $headerEl.css({
-          'padding-top': $countEl.outerHeight()
-        });
-      } else {
-        $headerEl.css({
-          'padding-top': ''
-        });
-      }
-    }
-    setHdrPadding();
-    $(window).on('resize', function () {
-      setHdrPadding();
-    });
-
-    function setInitialHeight() {
-      $contentParent.each(function () {
-        var $t = $(this);
-        var $fakeHeight = $t.attr('data-sleeve-height');
-        $t.height($fakeHeight);
-      });
-    }
-
-    $('.ticket-sign').eq(1).hide();
-
-    function revealContent() {
-      var $t = $(this);
-      var $contentRev = $t.siblings('.content-reveal');
-
-      if (!$t.hasClass('is-active')) {
-        $contentRev.animate({
-          height: '100%'
-        }, 200);
-        $t.addClass('is-active');
-        $t.siblings('.content-reveal').addClass('is-active');
-      } else {
-        $contentRev.animate({
-          height: $contentRev.attr('data-sleeve-height')
-        }, 200);
-        $t.removeClass('is-active');
-        $t.siblings('.content-reveal').removeClass('is-active');
-      }
-    }
-
-    $countDown.countdown($countDown.attr('data-countdown'), function (event) {
-      $(this).html(event.strftime('\n        <div class="time-el">\n          <span class="time">%D</span>\n          <span class="type">Days</span>\n        </div>\n        <div class="time-el">\n          <span class="time">%H</span>\n          <span class="type">Hours</span>\n        </div>\n        <div class="time-el">\n          <span class="time">%M</span>\n          <span class="type">Mins</span>\n        </div>\n        \n      '));
-    });
-
-    function showFaq() {
-      var $t = $(this);
-      if ($t.hasClass('is-active')) {
-        $t.find('.the-answer').slideUp(100);
-        $t.removeClass('is-active');
-        return;
-      } else {
-        $infoParent.find('.the-answer').slideUp(100);
-        $infoParent.removeClass('is-active');
-        $t.find('.the-answer').slideDown(100);
-        $t.addClass('is-active');
-      }
-    }
-
-    $infoParent.on('click', showFaq);
-    $triggerContent.on('click', revealContent);
-    setInitialHeight();
-
-    $(window).on('load', function () {
-      $('body').addClass('is-loaded');
-    });
-
-    $('.mt-modal').on('click', function () {
-      $('body').toggleClass('showing-modal');
-    });
-  })(jQuery);
-};
-
-/***/ }),
+/* 2 */,
+/* 3 */,
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10688,61 +10477,16 @@ Object.defineProperty(exports, "__esModule", {
 
 exports.default = function () {
   ;(function ($) {
-    var $header = $('header');
-    var $counterBar = $('.countdown-bar');
-    var $footerNav = $('.footer-nav-el');
     var $window = $(window);
     var didScroll = false;
-    var $headerHeight = $header.outerHeight();
-    var $windowOffset = $window.scrollTop();
-    var $fakeNav = $('.fixed-nav');
-    var $fakeA = $('fixed-nav a');
-    var $readNav = $('nav');
-    var $navHeight = $readNav.outerHeight();
-    var $counterBarHeight = $counterBar.outerHeight();
-    var $headerImg = $('#hdrImg');
-
-    var calcHeight = function calcHeight() {
-      $headerHeight = $header.outerHeight();
-      $navHeight = $readNav.outerHeight();
-      $counterBarHeight = $counterBar.outerHeight();
-    };
-
-    var updateResize = function updateResize() {
-      $headerHeight = $header.outerHeight();
-      $navHeight = $readNav.outerHeight();
-      $counterBarHeight = $counterBar.outerHeight();
-    };
 
     var updateScrollState = function updateScrollState() {
       didScroll = true;
       $windowOffset = $window.scrollTop();
     };
 
-    var revealNav = function revealNav() {
-      if ($windowOffset > $navHeight + $counterBarHeight) {
-        $fakeNav.css({
-          'transform': 'translate(-50%, 0%)'
-        });
-      } else {
-        $fakeNav.css({
-          'transform': ''
-        });
-      }
-    };
-
     var scrollTicker = function scrollTicker() {
       if (didScroll) {
-        revealNav();
-        if ($windowOffset < $headerHeight - $counterBar.outerHeight()) {
-          $footerNav.css({
-            'transform': 'translateY(' + 100 + '%)'
-          });
-        } else {
-          $footerNav.css({
-            'transform': 'translateY(' + 0 + '%)'
-          });
-        }
 
         didScroll = false;
       }
@@ -10751,60 +10495,11 @@ exports.default = function () {
 
     requestAnimationFrame(scrollTicker);
     $window.on('scroll', updateScrollState);
-    $window.on('resize', updateResize);
-    $window.on('load', calcHeight);
   })(jQuery);
 };
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-exports.default = function () {
-  ;(function ($) {
-    var $navLi = $('.nav-li li');
-    var $footerNav = $('.footer-li');
-    var $fkNav = $('.fk-ul');
-    var $fkBtn = $('.close-fk-nv');
-    var $cloneNavOne = $navLi.clone();
-    var $nav = $('.slide_link');
-    var $fixedNav = $('.fixed-nav');
-    var $lineup = $('.lineup_link');
-
-    var showLineup = function showLineup() {
-      return $('body').toggleClass('lineup-showing');
-    };
-
-    $lineup.on('click', showLineup);
-
-    var triggerFk = function triggerFk() {
-      $('body').toggleClass('nav-is-open');
-    };
-
-    var slideSiteDos = function slideSiteDos(e) {
-      e.preventDefault();
-      var $t = $(e.currentTarget);
-      var $minusHeight = $fixedNav.outerHeight();
-      $('html,body').animate({
-        'scrollTop': $($t.attr('href')).offset().top - $minusHeight
-      }, 1000);
-    };
-
-    $fkBtn.on('click', triggerFk);
-    $nav.on('click', function (e) {
-      return slideSiteDos(e);
-    });
-  })(jQuery);
-};
-
-/***/ }),
+/* 5 */,
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
