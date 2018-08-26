@@ -1,0 +1,21 @@
+.spacing {
+  &--sm {
+    padding: 1em;
+  }
+  &--md {
+    padding: 2em;
+  }
+}
+
+
+@media(min-width: $bp-md) {
+  .spacing {
+    &--sm {
+      padding: 1.2em;
+    }
+    &--md {
+      padding: 2.4em;
+    }
+  }
+}
+
