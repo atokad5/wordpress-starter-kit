@@ -1,13 +1,11 @@
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const sass = require('gulp-sass');
-const _if = require('gulp-if');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const webpack = require('webpack');
-const del = require('del');
-const chalk = require('chalk');
 const browsersync = require('browser-sync').create();
+const cleanCSS = require('gulp-clean-css');
 
 
 //browserlist target
@@ -80,7 +78,18 @@ gulp.task('scss', () => {
     .pipe(browsersync.stream())
 });
 
+gulp.task('minify-css', () => {
+  return gulp.src('dist/assets/css/style.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest('dist/assets/css/'));
+});
+
+
+
 let taskDefaults = ['scss', 'webpack', 'server'];
+let buildSite = ['minify-css'];
+
+gulp.task('build', buildSite);
 
 gulp.task('default', taskDefaults, () => {
   gulp.watch(PATHS.scss, ['scss']);
