@@ -4,11 +4,6 @@
   margin: auto;
 }
 
-header, 
-footer, 
-section {
-  position: relative;
-}
 
 .is-mobile-centered {
   text-align: center;
@@ -16,18 +11,10 @@ section {
 .site-container {
   z-index: 2;
   max-width: 1800px;
-  // overflow: hidden;
   margin: auto;
   position: relative;
 }
 
-.site-main {
-  max-width: 1800px;
-  margin: auto;
-  overflow: hidden;
-  position: relative;
-  z-index: 9;
-}
 .is-el-bg {
   @include fill-parent();
   background-size: cover;
@@ -40,22 +27,13 @@ section {
   }
 }
 
-.is-white {
-  color: $white;
-}
 
 .over-bg {
   position: relative;
   z-index: 5;
 }
+
 .is-center {
   text-align: center;
   margin: auto;
-}
-
-
-@media(min-width: $bp-md) {
-  .is-mobile-centered {
-    text-align: left;
-  }
 }

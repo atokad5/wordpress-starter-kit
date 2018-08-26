@@ -1,5 +1,5 @@
 {
-  "name": "Kenny's Wordpress Environment",
+  "name": "Kenny's-Wordpress-Environment",
   "version": "1.0.0",
   "description": "- Built ontop of Wordpress using ACF (Advanced Custom Fields for custom Metafields) - Has Webpack Javascript Build. Using industry standards (ES6 syntax) - Has Sass (css environment)",
   "main": "index.js",
@@ -24,7 +24,7 @@
     "gulp-autoprefixer": "^4.1.0",
     "gulp-concat": "^2.6.1",
     "gulp-if": "^2.0.2",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-util": "^3.0.8",
     "handlebars": "^4.0.11",

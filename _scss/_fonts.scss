@@ -1,75 +1,48 @@
-$sectionTitle: 3.529em;
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700|Rubik+Mono+One&subset=latin-ext');
+
+
 
 body {
-  font-size: 22px;
-  // @include font-smoothing();
-}
-
-.section-title {
-  h1 {
-    font-size: 1.4em;
-    // @include font-smoothing();
-  }
-}
-
-
-p, 
-li, 
-span {
-  font-size: 0.85em;
+  font-size: 15px;
   line-height: 1.6;
 }
 
 
+h1 {
+  font-size: 2.353em;
+}
+h2 {
+  font-size: 1.765em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.1;
+  margin: 0;
+}
+
 @media(min-width: $bp-md) {
-  .section-title {
-    h1 {
-      font-size: 1.5em;
-    }
-  }
-  p, 
-  li, 
-  span {
-    font-size: 0.87em;
+  body {
+    font-size: 16px;
   }
 }
 
 
 @media(min-width: $bp-lg) {
-  .section-title {
-    h1 {
-      font-size: 1.55em;
-    }
-  }
-  p, 
-  li, 
-  span {
-    font-size: 0.91em;
+  body {
+    font-size: 17px;
   }
 }
 
 @media(min-width: $bp-xl) {
-  .section-title {
-    h1 {
-      font-size: 1.7em;
-    }
-  }
-  p, 
-  li, 
-  span {
-    font-size: 0.95em;
+  body {
+    font-size: 18px;
   }
 }
 
-@media(min-width: $bp-xxl) {
-  .section-title {
-    h1 {
-      font-size: 2em;
-    }
-  }
-  p, 
-  li, 
-  span {
-    font-size: 1em;
-  }
-}
+
+
+
