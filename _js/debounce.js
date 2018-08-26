@@ -14,6 +14,7 @@ export default function() {
     };
   };
 
+
   // example
   // let funcName = debounce(function() {
     // execute code 

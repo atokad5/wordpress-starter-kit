@@ -10445,107 +10445,10 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _scroll = __webpack_require__(4);
-
-var _scroll2 = _interopRequireDefault(_scroll);
-
-var _lazyload = __webpack_require__(6);
-
-var _lazyload2 = _interopRequireDefault(_lazyload);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.$ = _jquery2.default;
 window.jQuery = _jquery2.default;
-
-(0, _scroll2.default)();
-
-(0, _lazyload2.default)();
-
-/***/ }),
-/* 2 */,
-/* 3 */,
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-exports.default = function () {
-  ;(function ($) {
-    var $window = $(window);
-    var didScroll = false;
-
-    var updateScrollState = function updateScrollState() {
-      didScroll = true;
-      $windowOffset = $window.scrollTop();
-    };
-
-    var scrollTicker = function scrollTicker() {
-      if (didScroll) {
-
-        didScroll = false;
-      }
-      requestAnimationFrame(scrollTicker);
-    };
-
-    requestAnimationFrame(scrollTicker);
-    $window.on('scroll', updateScrollState);
-  })(jQuery);
-};
-
-/***/ }),
-/* 5 */,
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-exports.default = function () {
-  ;(function () {
-    var bgImage = $('.is-bg');
-    var lazyImg = $('.lazy-image');
-
-    // Lazy load background images
-    var snagBgImages = function snagBgImages() {
-      bgImage.each(function (i, img) {
-        var $t = $(img);
-        var bgSrc = $t.attr('data-bg-src');
-        var imger = new Image();
-        $(imger).attr('src', bgSrc).on('load', function () {
-          $t.addClass('ready').css({ 'background-image': 'url(' + bgSrc + ')' });
-          $t.parent().addClass('bg-is-set');
-        });
-      });
-    };
-
-    // Lazy load images 
-    var injectSrc = function injectSrc() {
-      lazyImg.each(function (i, img) {
-        var $t = $(img);
-        var srcVal = $t.attr('data-lazy');
-        $t.attr('src', srcVal);
-        $t.on('load', function () {
-          return $t.parent().addClass('is-loaded');
-        });
-      });
-    };
-
-    $(window).on('load', function () {
-      snagBgImages();
-      injectSrc();
-    });
-  })(jQuery);
-};
 
 /***/ })
 /******/ ]);
