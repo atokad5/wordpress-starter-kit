@@ -10817,9 +10817,8 @@ Object.defineProperty(exports, "__esModule", {
 
 exports.default = function () {
   ;(function () {
-    var bgImage = $('.is-el-bg');
+    var bgImage = $('.is-bg');
     var lazyImg = $('.lazy-image');
-    var galleryImg = $('.is-gallery-image');
 
     // Lazy load background images
     var snagBgImages = function snagBgImages() {
@@ -10845,15 +10844,6 @@ exports.default = function () {
         });
       });
     };
-
-    galleryImg.each(function (i, img) {
-      var $t = $(img);
-      var heightEl = $t.attr('data-height');
-      var widthEl = $t.attr('data-width');
-      $t.parent().css({
-        'padding-bottom': heightEl / widthEl * 100 + '%'
-      });
-    });
 
     $(window).on('load', function () {
       snagBgImages();
