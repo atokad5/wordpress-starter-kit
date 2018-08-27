@@ -6,8 +6,8 @@ const autoprefixer = require('gulp-autoprefixer');
 const webpack = require('webpack');
 const browsersync = require('browser-sync').create();
 const cleanCSS = require('gulp-clean-css');
-
-
+const uglify = require('gulp-uglify');
+const pump = require('pump');
 //browserlist target
 const targetBrowsers = ['last 5 versions'];
 
@@ -84,10 +84,19 @@ gulp.task('minify-css', () => {
     .pipe(gulp.dest('dist/assets/css/'));
 });
 
+gulp.task('compress', function (cb) {
+  pump([
+        gulp.src('dist/assets/js/app.bundle.js'),
+        uglify(),
+        gulp.dest('dist/assets/js/')
+    ],
+    cb
+  );
+});
 
 
 let taskDefaults = ['scss', 'webpack', 'server'];
-let buildSite = ['minify-css'];
+let buildSite = ['minify-css', 'compress'];
 
 gulp.task('build', buildSite);
 
