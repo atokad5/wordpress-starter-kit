@@ -8,7 +8,6 @@ const browsersync = require('browser-sync').create();
 const cleanCSS = require('gulp-clean-css');
 const uglify = require('gulp-uglify');
 const pump = require('pump');
-//browserlist target
 const targetBrowsers = ['last 5 versions'];
 
 //project paths
